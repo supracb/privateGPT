@@ -1,5 +1,7 @@
 .venv
 
+settings-openai.yaml
+
 settings-me.yaml
 
 .ruff_cache
