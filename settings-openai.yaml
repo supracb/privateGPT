@@ -1,5 +1,0 @@
-llm:
-  mode: openai
-
-openai:
-  api_key: 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
