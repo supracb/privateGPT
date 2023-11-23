@@ -181,9 +181,9 @@ class PrivateGptUi:
             with gr.Row():
                 # gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=PrivateGPT></div")
                 gr.HTML(f"""
-                    <div class='logo'>
-                        <img src={logo_svg} alt='PrivateGPT'>
-                        <span style='color: #FFFFFF;'>Grid Connect</span>
+                    <div class='logo' style='font-size: 16px; display: flex; align-items: center;'>
+                        <img src={logo_svg} alt='PrivateGPT' style='width: 50px; height: 50px;'>
+                        <span style='color: #FFFFFF; margin-left: 10px;'>Grid Connect</span>
                     </div>
                 """)
 
@@ -194,29 +194,29 @@ class PrivateGptUi:
                         label="Mode",
                         value="Query Docs",
                     )
-                    upload_button = gr.components.UploadButton(
-                        "Upload File(s)",
-                        type="filepath",
-                        file_count="multiple",
-                        size="sm",
-                    )
-                    ingested_dataset = gr.List(
-                        self._list_ingested_files,
-                        headers=["File name"],
-                        label="Ingested Files",
-                        interactive=False,
-                        render=False,  # Rendered under the button
-                    )
-                    upload_button.upload(
-                        self._upload_file,
-                        inputs=upload_button,
-                        outputs=ingested_dataset,
-                    )
-                    ingested_dataset.change(
-                        self._list_ingested_files,
-                        outputs=ingested_dataset,
-                    )
-                    ingested_dataset.render()
+                    # upload_button = gr.components.UploadButton(
+                    #     "Upload File(s)",
+                    #     type="filepath",
+                    #     file_count="multiple",
+                    #     size="sm",
+                    # )
+                    # ingested_dataset = gr.List(
+                    #     self._list_ingested_files,
+                    #     headers=["File name"],
+                    #     label="Ingested Files",
+                    #     interactive=False,
+                    #     render=False,  # Rendered under the button
+                    # )
+                    # upload_button.upload(
+                    #     self._upload_file,
+                    #     inputs=upload_button,
+                    #     outputs=ingested_dataset,
+                    # )
+                    # ingested_dataset.change(
+                    #     self._list_ingested_files,
+                    #     outputs=ingested_dataset,
+                    # )
+                    # ingested_dataset.render()
                 with gr.Column(scale=7):
                     _ = gr.ChatInterface(
                         self._chat,
@@ -229,7 +229,8 @@ class PrivateGptUi:
                                 AVATAR_BOT,
                             ),
                         ),
-                        additional_inputs=[mode, upload_button],
+                        additional_inputs=[mode],
+                        # additional_inputs=[mode, upload_button],
                     )
         return blocks
 
