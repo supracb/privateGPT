@@ -169,7 +169,7 @@ class PrivateGptUi:
             theme=gr.themes.Soft(primary_hue=slate),
             css=".logo { "
             "display:flex;"
-            "background-color: #C7BAFF;"
+            "background-color: #3d3935;"
             "height: 80px;"
             "border-radius: 8px;"
             "align-content: center;"
@@ -179,7 +179,13 @@ class PrivateGptUi:
             ".logo img { height: 25% }",
         ) as blocks:
             with gr.Row():
-                gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=PrivateGPT></div")
+                # gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=PrivateGPT></div")
+                gr.HTML(f"""
+                    <div class='logo'>
+                        <img src={logo_svg} alt='PrivateGPT'>
+                        <span style='color: #FFFFFF;'>Grid Connect</span>
+                    </div>
+                """)
 
             with gr.Row():
                 with gr.Column(scale=3, variant="compact"):
